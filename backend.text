@@ -18,3 +18,49 @@ packages are depended upon the another packages
 package-lock-json file maintain all the dependencies
 
 
+
+npm init -y=> nodejs application initiate
+npm i expreess=>> install exprees package
+
+server.js
+
+const express=require('express')
+
+const app=express() //server instace create kr rahe hain
+
+
+app.get('/',(req,res)=>{ 
+    res.send('hello world')
+})
+
+req-> to access the  data  from the fronted we use ony req method
+res-> to send the response to fronted we use res method
+.send
+
+app.listen(3000) //to start the server 
+
+
+
+***Api***
+
+An API (Application Programming Interface) 
+is a set of rules and protocols that lets
+different software programs talk to each other
+and share data
+
+
+
+Rest apis
+respresentational state transfer
+
+it used http protocals
+
+http method 
+GET-> to fetch the data from the server
+POST -> to send the data in the server
+PATCH-> when the data is already present in the server and we need to update them
+DELETE->to delete the data from the server
+
+
+
+

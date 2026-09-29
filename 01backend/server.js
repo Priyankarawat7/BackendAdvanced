@@ -1,8 +1,9 @@
 const express=require('express')
 
-const app=express()
+const app=express() //server instace create kr rahe hain
 
-app.get('/',(req,res)=>{
+
+app.get('/',(req,res)=>{ 
     res.send('hello world')
 })
 
@@ -15,4 +16,4 @@ app.get('/about',(req,res)=>{
     
 // })
 
-app.listen(3000)
+app.listen(3000) //to start the server 
