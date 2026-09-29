@@ -1,0 +1,20 @@
+why use node-modules ?
+
+packages koi or likhta hai us packages ko apne system pr run 
+
+packages are written by some developers but the code of the packages  
+is store in the node modules folder
+
+
+what is package-json?
+
+package-json is maintain the code what kind of package 
+you are use and in where the code is dependend in your project
+
+
+
+package-lock-json?
+packages are depended upon the another packages
+package-lock-json file maintain all the dependencies
+
+
