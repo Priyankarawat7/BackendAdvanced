@@ -1,6 +1,6 @@
 //this file is used to create the server
-
 const express=require('express')
+
 
 const app=express()
 app.use(express.json()) //the data is coming through api. we can read

@@ -64,3 +64,31 @@ DELETE->to delete the data from the server
 
 
 
+//Mongo DB
+
+Cluster->it's a physical machine. where we can configure how much our ram,CPU,memory would be store.
+
+
+MongoDb is also comer under the server
+
+There are various types of server:-
+hosting website
+web servers
+main servers
+file servers
+database servers
+application servers
+proxy servers
+
+
+CRUD operation
+C->create
+R->Read
+U ->update
+D->delete
+
+modified paasword
+mongodb+srv://priyanka:k2V.D%25z2S6Ta67R@cluster0.jtdbu8a.mongodb.net/
+k2V.D%z2S6Ta67R
+
+mongodb+srv://priyanka:k2V.D%z2S6Ta67R@cluster0.jtdbu8a.mongodb.net/
