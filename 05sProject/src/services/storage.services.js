@@ -2,7 +2,8 @@ const { ImageKit } = require("@imagekit/nodejs");
 const { clientEncryption } = require("../models/post.model");
 
 const imagekit= new ImageKit({
-    privateKey:'private_r8q4EmJEs3r4wmMAPcPdlqqYf/s='
+    
+    privateKey:process.env.IMAGEKIT_PRIVATE_KEY
 
 
 })
@@ -14,6 +15,7 @@ async function uploadFile(buffer){
     const result=await imagekit.files.upload({
         file: base64File,
         fileName:"image.jpg"
+
     })
     return result
 

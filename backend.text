@@ -92,3 +92,8 @@ mongodb+srv://priyanka:k2V.D%25z2S6Ta67R@cluster0.jtdbu8a.mongodb.net/
 k2V.D%z2S6Ta67R
 
 mongodb+srv://priyanka:k2V.D%z2S6Ta67R@cluster0.jtdbu8a.mongodb.net/
+
+
+
+database doesn't store the images
+So we use cloud storage provider so that we can store the image while creating project on nodejs

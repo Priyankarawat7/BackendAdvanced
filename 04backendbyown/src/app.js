@@ -33,7 +33,12 @@ app.get('/notes',async(req,res)=>{
 })
 app.delete('/notes/:id',async(req,res)=>{
 
+    const id=req.params.id
 
+
+    await classModel.findByIdAndDelete({
+        _id:id
+    })
      res.status(201).json({
         message:"Class deleted successfully"
     })
@@ -41,6 +46,10 @@ app.delete('/notes/:id',async(req,res)=>{
 })
 app.patch('/notes/:id',async(req,res)=>{
 
+    const id=req.params.id
+
+
+    await classModel.findByIdAndUpdate({_id:id},{description:description})
      res.status(201).json({
         message:"Class updated successfully"
     })
