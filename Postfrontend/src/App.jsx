@@ -1,10 +1,15 @@
 import React from 'react'
+import {BrowserRouter as Router,Routes,Route} from 'react-router-dom'
+import CreatePost from './pages/CreatePost'
 
 function App() {
   return (
-    <div>
-      hello
-    </div>
+    <Router>
+      <Routes>
+        <Route path='/create-post' element={<CreatePost/>}/>
+        <Route path='/about' element={<h1>Hello about</h1>}/>
+      </Routes>
+    </Router>
   )
 }
 
