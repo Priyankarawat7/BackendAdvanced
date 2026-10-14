@@ -1,13 +1,14 @@
 import React from 'react'
 import {BrowserRouter as Router,Routes,Route} from 'react-router-dom'
 import CreatePost from './pages/CreatePost'
+import Feed from './pages/Feed'
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route path='/create-post' element={<CreatePost/>}/>
-        <Route path='/about' element={<h1>Hello about</h1>}/>
+        <Route path='/feed' element={<Feed/>}/>
       </Routes>
     </Router>
   )

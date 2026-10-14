@@ -60,3 +60,28 @@ html{
     cursor: pointer;
     font-size: 18px;
 }
+
+.feed-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    gap: 20px;
+    height: 100%;
+    width: 100%;
+    background-color: #f0f2f5;
+    padding: 20px;
+}
+
+.post-card img{
+    max-width: 50%;
+    max-height: 50%;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+
+.post-card h3{
+    margin-bottom: 10px;
+
+}
