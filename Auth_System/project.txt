@@ -1,0 +1,79 @@
+Authentication SYstem
+
+Validation
+Verification
+Authentication
+Authorization
+
+*********Validation************
+ ->the data we are receving.
+    it's format is correct or not
+ex-user Register 
+mobile->
+email->
+fullName->
+password->
+
+*************Verification***************
+->the data we are receving is correct or not
+ex
+email->ankur@123 
+to check the email address is correct or not 
+
+
+***********Authentication**********
+->create a server 
+there are 3 user A,B,C and 1 instagram server
+one user will react on the server but we don't know whom is requestion
+to identify the user requestion called Authentication
+
+
+**********Authorization*********
+
+College Building
+classroom
+Staff room
+director room/chairman room
+
+type or users
+set of permission
+student -> student has direct access of classrom, but it didnot have access of staff room /director room 
+faculty ->faculty has access of classrom,Staff room but no chairman room
+director or chairman-> direction has access of all
+
+
+
+we are following token based Authentication SYstem
+unique id
+fullName
+father name etc
+
+to access the resource 
+
+A-user----->server
+to Register 
+username,email,password
+
+server create token 
+token-A it store A user details
+then it will give the token-A to A-user to access the resource
+
+rememeber 
+it will only give token to Register users
+
+user-A (token-A)--------> 
+user-B (token-B)---------> Server
+user-C (token-C)-------->
+           
+it will read the token if data is Register already it will give the access
+
+
+
+to add token you have to install jsonwebtoken
+
+
+
+----continue with jwt secret
+
+
+
