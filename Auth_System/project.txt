@@ -67,13 +67,49 @@ user-C (token-C)-------->
            
 it will read the token if data is Register already it will give the access
 
+init -y
+app.js,server.js
+
+**folder**
+db->db.js,
+controller->auth.controller.js
+,models->user.model.js,
+routes->auth.routes.js
 
 
-to add token you have to install jsonwebtoken
 
+to add token you need to install jsonwebtoken
 
-
+require this token in auth.controller
 ----continue with jwt secret
 
 
+There are various types of storage in browser
+local storage
+session storage
+extension storage
+indexedDB
+Cookies
+cache Storage
+storage buckets
 
+
+
+** Cookies Storage -> Small text files send by a web server and stored on the user's computer by the web browser
+Cookies can add new server data ,read old data
+you have cookies admin access
+
+* any data you want to stored in your server it will go into the server
+
+* if you want to access the cookies in your server
+
+* you need to install the middleware and the name is cookie-parser
+
+
+
+Why we are creating Token
+
+is token exists or not
+
+
+                     
