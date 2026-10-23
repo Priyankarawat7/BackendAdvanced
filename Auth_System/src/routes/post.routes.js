@@ -7,33 +7,34 @@ const router=express.Router()
 
 router.post('/create',async(req,res)=>{
    
-    const token=req.cookies.token;
+    const token=req.cookies?.token;
     //console.log(req.body);
     if(!token){
       return  res.status(401).json({
-        message:"Unauthorized"
+        message:"Token not found"
     })
 }
 
 try {
     const decoded=jwt.verify(token,process.env.JWT_SECRET)
+    //console.log('Decoded token',decoded);
+    
     const user=await userModel.findOne({
         _id:decoded.id
     })
     console.log(user);
     
-
+       
 } catch (err) {
     return res.status(401).json({
         message:"Token is Invalid"
     })
     
 }
-    
-    //console.log(req.cookies);
-    res.send('Post created successfully')
-    
-    
+ //console.log(req.cookies);
+    res.status(201).json({
+        message:'Post created successfully',
+    })  
 })
 
 

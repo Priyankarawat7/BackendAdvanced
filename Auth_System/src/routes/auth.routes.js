@@ -9,14 +9,16 @@ router.post('/register',authController.registerUser)
 
   
 // "Get"
-router.get('/test',(req,res)=>{
-    console.log('Cookies:',req.cookies);
-    res.json({
-        message:"Access Test route",
-        cookies:req.cookies
-    })
+// router.get('/test',(req,res)=>{
+//     console.log('Cookies:',req.cookies);
+//     res.json({
+//         message:"Access Test route",
+//         cookies:req.cookies
+//     })
     
-})   
+// })   
+
+
 
 
 

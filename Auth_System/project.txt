@@ -120,4 +120,4 @@ is token exists or not
 token is created when user is Register
 
 
-                     
+to verify token is right or wrong using jsonwebtoken                 

@@ -1,0 +1,18 @@
+user admin
+
+artist  admin
+
+RoleBased authentication System
+
+src
+
+app.js->All the middleware are stored in the app.js and also 
+        the server will create in the app.js
+-->db -->how the database will connect in the server
+
+-->routes->authentication related file stored in routes
+
+-->model-->the type of data,and Schema you want to stored,in the model 
+
+--controller ->logics are written in the controller
+
