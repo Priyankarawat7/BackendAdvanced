@@ -12,7 +12,7 @@ app.use(cookieParser())
 
 //to access the  post,get api which is stored in the routes we have to use the prefix
 app.use('/api/auth',authRoutes)
-app.unsubscribe('/api/posts',postRoutes)
+app.use('/api/posts',postRoutes)
 
 
 

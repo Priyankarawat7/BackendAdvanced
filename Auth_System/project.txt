@@ -107,9 +107,17 @@ you have cookies admin access
 
 
 
-Why we are creating Token
+
+
+user-->Register-->server create token and then give token to user in (cookies storage) 
+
+Why we are creating Token??                     
+for user 
 
 is token exists or not
+
+
+token is created when user is Register
 
 
                      
