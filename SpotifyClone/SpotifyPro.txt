@@ -16,3 +16,44 @@ app.js->All the middleware are stored in the app.js and also
 
 --controller ->logics are written in the controller
 
+
+
+RegisterUser()
+{
+        require-> username,email,password,role
+        //check is username is already exists or not
+        query {
+                username=a,
+                email: b@gmailcom
+        } //it will give the null result which is wrong
+
+        so we  will use
+        $or will require multiple condition
+         $or:[
+                {username:c},
+                {email:b@gmail.com}
+        ] //any one condition is true it will return the value
+        
+
+}
+
+if username=a email=a@gmail.com
+
+username=b email=b@gmail.com
+
+username a email= b@gmail.com
+
+
+***Password hashing is importantt*****
+
+perform hashing
+properties
+same input ->same output
+
+planetext-->hash but can't convert hash into plane text
+ex
+
+test----hashing-->098f6bcd4621d373cade4e832627b4f6
+
+npm i bcryptjs  to convert password into hash
+
