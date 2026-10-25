@@ -47,6 +47,8 @@ async function registerUser(req,res){
 
 }
 
+//Login user
+//$or:[ ] username=a ,email= abc@.com if any one condition will satisfy it will login
 async function loginUser(req,res){
 
   const {username,email,password}=req.body
@@ -63,6 +65,8 @@ async function loginUser(req,res){
   }
   
   const isPasswordValid=await bcrypt.compare(password,user.password)
+                    // bcrypt convert password in hash and then 
+  // compare with the particular  hash that you stored in your .env file
 
   if(!isPasswordValid){
     return res.status(401).json({ message:"Invalid password"})
