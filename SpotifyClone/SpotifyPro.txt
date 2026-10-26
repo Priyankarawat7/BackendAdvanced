@@ -20,7 +20,7 @@ app.js->All the middleware are stored in the app.js and also
 
 RegisterUser()
 {
-        require-> username,email,password,role
+      1..  require-> username,email,password,role
         //check is username is already exists or not
         query {
                 username=a,
@@ -44,6 +44,7 @@ username=b email=b@gmail.com
 username a email= b@gmail.com
 
 
+2..
 ***Password hashing is importantt*****
 
 perform hashing
@@ -55,5 +56,47 @@ ex
 
 test----hashing-->098f6bcd4621d373cade4e832627b4f6
 
+
 npm i bcryptjs  to convert password into hash
+
+
+3...
+create 
+give token
+give cookies
+status
+
+
+LoginUser(){
+        1.. same as above "user does exists or not"
+
+        2..check isPasswordValid
+                bcrypt.compare()
+        (!isPasswordValid){
+
+        }
+
+        3.then give token
+
+        4..
+       thn give  cookies
+        status
+}
+
+
+
+Music controller
+
+role based authentication
+check if user is loggin or not 
+if user's role is artist then it will create account
+else "user does not create a music artist account
+
+
+createmusic(){
+
+}
+
+
+next how artist can create an album
 
