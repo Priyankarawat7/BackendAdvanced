@@ -94,9 +94,77 @@ else "user does not create a music artist account
 
 
 createmusic(){
+     1..   //req token
+        check if token is exists or not
+
+       2.. try{
+               then decoded jwt.verify
+
+               check if role !='artist'
+               //you don't have access to create a music
+        }
+
+        3..req title ,file 
+        result uploadFile()
+
+        4..create a musicModel.create(){
+
+        }
+        5.. status
+
+        6. catch()
+
 
 }
 
 
+
 next how artist can create an album
 
+createAlbum(){
+
+         1..   //req token
+        check if token is exists or not
+
+       2.. try{
+               then decoded jwt.verify
+
+               check if role !='artist'
+               //you don't have access to create a music
+        }
+
+        3.. req {title,musics}
+
+        4. create albumModel.create(){
+
+        }
+
+        5. status
+
+        6..catch()
+
+
+}
+
+
+but there is no need to write duplicate code in same function
+
+we have middleware where duplicate logics written at once and use in our code ,controller
+
+
+--middleware request ke andr jo data ata hai sb read kr skte hai
+
+--request ke andr jo data aatta h usse modify bhi kr skte hai
+
+--reponse send kr skte hain
+
+
+
+
+----get all musics---
+
+if you will use .populate()
+
+it will show the artist full detail
+
+to provide auth we can create a middleware
