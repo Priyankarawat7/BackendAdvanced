@@ -168,3 +168,12 @@ if you will use .populate()
 it will show the artist full detail
 
 to provide auth we can create a middleware
+
+router.get(/)--->get all music
+router.get(/albums)->fetched all albums              
+router.get(/albums/:albumId) fetched album by id
+
+
+
+miscellaneous Topic
+
