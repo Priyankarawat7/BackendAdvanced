@@ -1,5 +1,6 @@
 const userModel=require('../model/user.model')
 const bcrypt=require('bcryptjs')
+const emailService=require('../services/email')
 const jwt=require('jsonwebtoken')
 
 // user registered controller
@@ -88,4 +89,12 @@ async function loginUser(req,res){
 
 }
 
-module.exports={userRegister,loginUser}
+async function logout(req,res){
+    res.clearCookie('token')
+    res.status(201).json({
+        message:"User logged out sucessfully"
+    })
+
+}
+
+module.exports={userRegister,loginUser,logout}

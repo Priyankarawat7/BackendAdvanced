@@ -1,0 +1,9 @@
+//Api/auth/register
+
+logic
+1.when user register uski email pr message pahuch jana chaiye
+-->nodemailer
+2.
+//Api/auth/loginuser
+
+//Api/auth/logout
