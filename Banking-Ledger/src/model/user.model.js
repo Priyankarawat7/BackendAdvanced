@@ -37,19 +37,21 @@ userSchema.pre('save',async function(next){
     // modified hua to usko convert kro hash mai
 
     if(!this.isModified("password")){
-        return next()
+        return  
+        //next()
 
     }
     const hash=await bcrypt.hash(this.password,10)
     this.password=hash
 
-    return next()
+    //return next()
 })
 
 
-userSchema.method.comparePassword=async function(password){
-
-    return await bcrypt.compare(password.this.password)
+userSchema.methods.comparePassword=async function(password){
+    console.log(password,this.password);
+    
+    return await bcrypt.compare(password,this.password)
 }
 
 
