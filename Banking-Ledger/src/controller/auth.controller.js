@@ -42,10 +42,13 @@ async function userRegister(req,res){
         email:user.email,
         name:user.name, 
 
-        }
+        },
+         token
                          
-    }),
-    token
+    })
+
+    await emailService(user.email,user.name)
+   
 }
 
 async function loginUser(req,res){

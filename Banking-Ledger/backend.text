@@ -1,9 +1,167 @@
-//Api/auth/register
 
-logic
-1.when user register uski email pr message pahuch jana chaiye
--->nodemailer
+Backend-Ledger  project
+ 
+npm init -y
+npm i express,nodemon,mongoose,cookie-parser,dotenv,jsonwebtoken,bcryptjs,nodemailer
+
+folder structure
+-.env
+
+
+
+-server.js
+src---app.js
+
+/model
+-user.model.js
+-account.model.js
+
+/Db
+-db.js
+
+/controller
+-auth.controller.js
+-account.controller.js
+
+/routers
+-auth.routes.js
+-account.routes.js
+
+
+/middleware
+auth.middleware.js
+
+/services
+-email.js
+
+
+--logics
+
+1..//Api/auth/register
+
+   1.const {email,password,name} req.body
+
+   2.check isUserAlreadyExists using findOne
+    write in if condition
+
+   3.bcrypt.hash password
+
+   4.then create account
+
+   5.give token 
+
+   6. give cookie
+
+   7.status,token
+
+   8.await emailService(user.email,user.name)
+
+
+
 2.
 //Api/auth/loginuser
 
-//Api/auth/logout
+  1. const {email,password}= req.body
+
+  2. check user exists or not using findOne also .select('+password')
+
+  3.check isPasswordValid and compare with user.comparePassword
+
+  4.then give token
+
+  5. give cookie
+
+  6.status
+
+
+3..//Api/auth/logout
+
+    1.clearCookie()
+    2.status
+
+
+
+1.when user register uski email pr message pahuch jana chaiye
+-->nodemailer
+https://github.com/ankurdotio/Difference-Backend-video/tree/main/026-nodemailer
+
+
+
+--middleware
+
+1.check token in cookies and headers
+req.cookies || req.headers.authorization
+
+ return token,missing
+  
+3. try block{
+    decoded= jwt.verify token
+    then find the user details in using userModel.findById
+    then set user
+
+   return next()
+
+}
+
+ and catch block
+  status "token is invalid
+
+
+2.Transaction features
+
+
+
+How banking System Work
+
+Ledger
+
+user A         user B
+1000    -->    1200   
+Transaction 
+    {     
+        From- A
+        To-  B
+        Idempontencykey-XYZ
+        status-pending
+    } 
+
+  Ledger -A
+  {
+    Account-A
+    Amount-100
+    Type-Debit
+
+  }
+
+  Ledger -B
+  {
+    Account-B
+    Amount-100
+    Type-Credit
+
+  }
+
+  After
+
+    {     
+        From- A
+        To-  B
+        Idempontencykey-XYZ
+        status-Complere
+
+    }
+
+4 steps you have to follow
+
+1.user A -- user B (Amount dalana ,Transaction)
+2. Amount deducted from the user A
+3.then Amount transfer to User B with the help of Ledger
+4.then change the status from pending to complete
+
+if user A se User B ko pese nhi pahuche then user A ko vps pese dalne pdenge
+
+Idempontencykey -same payment ke liye apke account se pese double time deduct na ho jae 
+for this we use Idempontencykey
+  
+
+
