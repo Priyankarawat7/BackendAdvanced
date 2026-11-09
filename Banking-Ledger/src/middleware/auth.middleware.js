@@ -29,6 +29,6 @@ async function authMiddlewareUser(req,res,next){
         })
     }
 
-}
+} 
 
 module.exports={authMiddlewareUser}
