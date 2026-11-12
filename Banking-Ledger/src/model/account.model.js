@@ -7,6 +7,10 @@ const accountSchema=new mongoose.Schema({
         required:[true,'Account must ve associated with a user'],
         index:true //to find and the speed would be fast for searching 
     },
+       systemUser: {
+        type: Boolean,
+        default: false
+    },
     status:{
         type:String,
         enum:{

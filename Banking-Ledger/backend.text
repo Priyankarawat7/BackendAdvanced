@@ -15,6 +15,8 @@ src---app.js
 /model
 -user.model.js
 -account.model.js
+-transaction.model.js
+-ledger.model.js
 
 /Db
 -db.js
@@ -22,11 +24,12 @@ src---app.js
 /controller
 -auth.controller.js
 -account.controller.js
+-transaction.controller.js
 
 /routers
 -auth.routes.js
 -account.routes.js
-
+-transaction.routes.js
 
 /middleware
 auth.middleware.js
@@ -36,7 +39,8 @@ auth.middleware.js
 
 
 --logics
-
+Auth.routes.js
+Auth.controller.JS
 1..//Api/auth/register
 
    1.const {email,password,name} req.body
@@ -59,7 +63,7 @@ auth.middleware.js
 
 
 2.
-//Api/auth/loginuser
+//Api/auth/login
 
   1. const {email,password}= req.body
 
@@ -80,6 +84,85 @@ auth.middleware.js
     2.status
 
 
+--account.routes.js
+  logics
+//Api/accounts/createAccount
+
+   1. const user=req.user
+
+   2. then create accountmodel
+    user,
+    currency
+
+  3. status
+
+--transaction.routes.js
+/api/transaction/
+
+createTransaction()
+
+1. request {fromAccount,toAccount,amount,idempotencyKey}
+
+
+/api/transaction/system/invalid-funds
+
+createInitialFundsTransaction()
+
+1.request {toAccount,amount,idempotencyKey'}
+
+2. if (!toAccount || !amount || !idempotencyKey)
+     status "all are required"
+
+3 toUserAccount by findOne 
+  check _id: of toAccount
+  if(!toUserAccount)
+  //show "invalid Account"
+
+4.  fromUserAccount  by findOne 
+  check systemUser,user:req.user._id
+
+  if(!fromUserAccount)
+    show "system user is not found"
+
+5.start session
+ mongoose.session()
+ start.startTransaction()
+
+
+6.then transaction= create transaction by transactionModel
+  fromAccount,
+  toAccount,
+  amount,
+  idempotencyKey,
+  status ,{session}
+
+7. debitLedgerEntry create using ledgerModel
+
+  account,
+  amount,
+  transaction,
+  type ,{session}
+
+8.creditLedgerEntry create using ledgerModel
+account,
+amount,
+transaction,
+type,{session}
+
+9..then transaction.save session
+session.commitTransaction()
+session.endSession()
+
+10.. give status
+
+
+
+
+
+
+
+
+
 
 1.when user register uski email pr message pahuch jana chaiye
 -->nodemailer
@@ -88,6 +171,9 @@ https://github.com/ankurdotio/Difference-Backend-video/tree/main/026-nodemailer
 
 
 --middleware
+
+
+authMiddlewareUser(req,res,next)
 
 1.check token in cookies and headers
 req.cookies || req.headers.authorization
@@ -107,9 +193,31 @@ req.cookies || req.headers.authorization
   status "token is invalid
 
 
+--authSystemUserMiddleware(req,res,next)
+
+  1.check token in cookies and headers
+req.cookies || req.headers.authorization
+
+ return token,missing
+
+ 3. try block{
+    decoded= jwt.verify token
+    then find the user details in using userModel.findById().select('+systemUser')
+    
+    if !user.systemUser 
+      it will shoew not a system user
+    
+    then set user
+
+   return next()
+}
+
+  and catch block
+  status "token is invalid
+
+
+
 2.Transaction features
-
-
 
 ***How banking System Work*****
 
@@ -165,6 +273,7 @@ for this we use Idempontencykey
   
 
 
+
 **Create a new Transaction
 The 10-Stap transfer flow:
 1.Validate request
@@ -177,3 +286,9 @@ The 10-Stap transfer flow:
 8.Mark Transaction Completed
 9.Commit MongoDb session
 10.Send email notification
+
+
+
+
+
+
