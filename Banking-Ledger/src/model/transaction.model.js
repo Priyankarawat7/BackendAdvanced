@@ -19,7 +19,7 @@ const transactionSchema=new mongoose.Schema({
     status:{
         type:String,
         enum:{
-            values:['Pending','Completed','failed','Reversed'],
+            values:['Pending','Completed','Failed','Reversed'],
             message:"Status can be either Pending ,Completed,Failed or Reversed"
         },
         default:"Pending"

@@ -285,8 +285,17 @@ The 10-Stap transfer flow:
 7.Create Credit ledger Entry
 8.Mark Transaction Completed
 9.Commit MongoDb session
-10.Send email notification
+10.Send email notification  
 
+Why we use Idempontency Key??
+
+Let say you are using UPI and ek idempotencyKey generate huii and 
+apne 100 rupees  ki transaction ki usme apki idempotencyKey gyii 
+idempotencyKey ke sth apki transaction huii lekin ksi reason se from account ko pesa gya nahi
+transaction status "Pending" right now.
+
+if you again repeating this scenerio to if will valid your idempotencyKey iski sth koi
+dusri transaction toh nhi gyii
 
 
 

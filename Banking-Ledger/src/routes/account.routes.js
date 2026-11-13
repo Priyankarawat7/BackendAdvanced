@@ -16,5 +16,6 @@ router.get('/',authMiddleware.authMiddlewareUser,accountController.getUserAccoun
 
 // -GET /api/accounts/balance/:accountId
 
+router.get('/balance/:accountId',authMiddleware.authMiddlewareUser,accountController.getAccountBalanceController)
 
 module.exports=router
