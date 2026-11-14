@@ -52,23 +52,23 @@ async function createTransaction(req,res){
    })
 
    if(isTransactionAlreadyExist){
-        if(isTransactionAlreadyExist=='Completed'){
+        if(isTransactionAlreadyExist.status=='Completed'){
             return res.json(201).json({
                 message:"Transaction Already Processed"
             })
         }
-        if(isTransactionAlreadyExist=="Pending"){
+        if(isTransactionAlreadyExist.status=="Pending"){
         return res.status(401).json({
         message:"Transaction is Still in Processing"
     })
 
     }
-        if(isTransactionAlreadyExist=='Failed'){
+        if(isTransactionAlreadyExist.status=='Failed'){
             return res.status(500).json({
                 message:"Previous transaction is failed try again"
             })
         }   
-        if(isTransactionAlreadyExist=='Reversed'){
+        if(isTransactionAlreadyExist.status=='Reversed'){
             return res.status(500).json({
                 message:"Transaction was reversed please try again"
             })
@@ -106,13 +106,13 @@ async function createTransaction(req,res){
 
    const session=await mongoose.startSession()
    session.startTransaction()
-    const transaction=await transactionModel.create({
+    const transaction=await transactionModel.create([{
         fromAccount,
         toAccount,
         amount,
         idempotencyKey,
         status:"Pending"
-    },{session})
+    }],{session})
 
     const debitLedgerEntry=await ledgerModel.create([{
         account:fromUserAccount._id,
